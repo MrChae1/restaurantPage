@@ -1,18 +1,16 @@
-import{ camelCase } from 'lodash';
-import printMe from './print';
+import './style.css';
+import Icon from './MainBg.jpg';
 
 function component(){
-    const element = document.createElement('div');
-    const btn = document.createElement('button');
+    const container = document.createElement('h1');
+    const mainCon = document.createElement('div');
+    container.innerHTML = `Nice One`;
+    mainCon.classList.add('mainCon')
+    const myIcon = new Image();
+    myIcon.src = Icon;
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-    btn.innerHTML = 'click me';
-    btn.onclick = printMe;
-
-    element.appendChild(btn);
-
-    return element;
+    mainCon.append(container, myIcon);
+    return mainCon;
 }
 
 document.body.appendChild(component());
