@@ -59,17 +59,17 @@ main > nav > button:hover{
     color: black;
     transition: ease-in-out 1s;
 }
-button, section, footer{
+button, section, footer, .homeImgDiv, .homeParaDiv, .menuPara{
     border: 2px solid white;
     border-radius: 5px;
     background-color: transparent;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    color: #fff;
+    color: black;
 }
 main > section{
     height: 100%;
-    width: 90vw;
-    padding: .5rem;
+    width: 100%;
+    padding: .2rem;
     grid-row: 3/4;
 }
 footer{
@@ -79,11 +79,99 @@ footer{
     border: none;
     text-align: center;
 }
-
 .getClick{
-    background-color: #fff;
-    color: #000;
+    background-color: red;
+    color: white;
+    transition: ease-in-out 1s;
 }
+.forAllDiv{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;   
+}
+.homeDiv{
+    width: 100%;
+    height: 100%;
+    padding: .2rem;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1rem;
+}
+.homeImgDiv{
+    width: 50%;
+    height: 60%;
+    background: url('../src/img/allBlueMap.jpg') center center;
+    background-size: cover;
+}
+.homeParaDiv{
+    width: 90%;
+    height: 40%;
+    padding: .5rem;
+    text-align: center;
+}
+.homePara{
+    text-align: justify;
+    color: black;
+    font-weight: bold;
+}
+.menuDiv{
+    padding: .5rem;
+    display: none;
+    flex: 1;
+    /* display: grid; 
+    grid-template: 5fr 1fr / repeat(3, 1fr); */
+    gap: 1rem;
+}
+.menuDiv, .imgSize, .seah2{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.sobaDiv, .seafoodDiv, .specialDiv{
+    border: 2px solid white;
+    width: 33.3%;
+    height: 100%;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: 1fr 7fr;   
+    /* gap: .rem; */
+    place-content: center;
+    /* text-align: center; */
+}
+.sobaDiv{
+    /* grid-area: 1/1/3/2; */
+    /* width: 100%; */  
+}
+.seafoodDiv{
+    /* grid-area: 1/2/3/3; */
+    /* display: none; */
+}
+.specialDiv{
+    /* grid-area: 1/3/3/4; */
+    /* display: none; */
+}
+.seaImgDiv{
+    grid-row: 2/3;
+    padding: 0 1rem 1rem;
+}
+.seah2{
+    grid-row: 1/2;
+    text-align: center;
+    color: #000;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+
+
+
+
+
+
 
 
 

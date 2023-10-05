@@ -1,26 +1,11 @@
 import './style.css';
-import { headerTag, navBar, sectionTag, footerTag } from './print';
-// import myAllBlue from '../src/img/allBlue.jpg';
+import { allFunc } from './print';
 
 function component(){
+    const appendFunc = allFunc();
     const mainElement = document.createElement('main');
     mainElement.classList.add('mainCon');
-    mainElement.append(headerTag(), navBar(), sectionTag(), footerTag());
-    
-    function navClicked(){
-        const navBtn = navBar();
-        navBtn.addEventListener('click', function(event) {
-            if(event.target.id === 'HOME'){
-                console.log('here');
-            }
-            else if(event.target.id === 'MENU'){
-                console.log('Hi');
-            }
-        });
-    }
-
-    navClicked();
-    
+    mainElement.append(appendFunc.headerTag(), appendFunc.navBar(), appendFunc.sectionTag(), appendFunc.footerTag());
     return mainElement;
 }
 
