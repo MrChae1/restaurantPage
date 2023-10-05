@@ -89,12 +89,11 @@ const setDisplay = (x) =>{
     if(x === 'forHome'){
         newHome.style.display = newHome.style.display = 'none'? 'flex': 'none';
         newMenu.style.display = newMenu.style.display = 'flex'? 'none': 'flex';
-        console.log('nice');
     }
     else if(x === 'forMenu'){
         newHome.style.display = newHome.style.display = 'flex'? 'none': 'flex';
         newMenu.style.display = newMenu.style.display = 'none'? 'flex': 'none';
-        console.log('here');
     }
-    
 }
+
+
