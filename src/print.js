@@ -1,10 +1,8 @@
 import './style.css';
-import { allPages } from './section';
-
+import { allPages, menuClick, navgetClicked } from './section';
 
 export function allFunc(){
     
-
     function headerTag(){
         const headerElement = document.createElement('header');
         const honeElement = document.createElement('h1');
@@ -37,11 +35,12 @@ export function allFunc(){
         allDivContainer.classList.add('forAllDiv');
         const homePage = allPages().HomePage();
         const menuPage = allPages().menuPage();
+        menuPage.addEventListener('click', function(event){
+            menuClick(event, menuPage);
+        });
         allDivContainer.append(homePage, menuPage);
-
         return {allDivContainer, homePage };
     }
-    
     function sectionTag(){
         const conAll = ConAllDiv();
         const mainSection = document.createElement('section');
@@ -59,41 +58,7 @@ export function allFunc(){
 
     return {headerTag, navBar, sectionTag, footerTag, ConAllDiv}
 }
-const navgetClicked = (navbtn, home, menu, contact) => {
-    const getFunct = allFunc();
-    const btnArr = [home, menu, contact];
-    const btnitems = ['forHome', 'forMenu', 'forContact'];
-    navbtn.addEventListener('click', function(event) {
-        if(event.target.id === 'HOME'){
-            btnArr.forEach(key => key.classList.remove('getClick'));
-            home.classList.add('getClick');
-            setDisplay(btnitems[0]);
-       }
-        else if(event.target.id === 'MENU'){
-            btnArr.forEach(key => key.classList.remove('getClick'));
-            menu.classList.add('getClick');
-            setDisplay(btnitems[1]);
-        }
-        else if(event.target.id === 'CONTACT'){
-            btnArr.forEach(key => key.classList.remove('getClick'));
-            contact.classList.add('getClick');
-            setDisplay(btnitems[2]);
-        }
-    });
-}
 
-const setDisplay = (x) =>{
-    const newHome = document.querySelector('.homeDiv');
-    const newMenu = document.querySelector('.menuDiv');
 
-    if(x === 'forHome'){
-        newHome.style.display = newHome.style.display = 'none'? 'flex': 'none';
-        newMenu.style.display = newMenu.style.display = 'flex'? 'none': 'flex';
-    }
-    else if(x === 'forMenu'){
-        newHome.style.display = newHome.style.display = 'flex'? 'none': 'flex';
-        newMenu.style.display = newMenu.style.display = 'none'? 'flex': 'none';
-    }
-}
 
 
