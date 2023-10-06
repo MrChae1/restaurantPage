@@ -22,62 +22,101 @@ export function allPages(){
         
         //For Seafood Images Container
         const seafoodDiv = document.createElement('div');
-        seafoodDiv.classList.add('allDivMenu');
+        seafoodDiv.classList.add('seaDiv');
         seafoodDiv.innerHTML = `
             <h2 class="seah2">Seafood Rice</h2>
             <div class="seaImgDiv">
-                <img src="${seaFood}" alt="Seafood" class="imgSize">
+                <img src="${seaFood}" alt="Seafood" class="imgSize seaImg">
             </div>
         `;
 
         const sobaDiv = document.createElement('div');
-        sobaDiv.classList.add('allDivMenu');
-        const sobaImgDiv = document.createElement('div');
+        sobaDiv.classList.add('soDiv');
         sobaDiv.innerHTML = `
             <h2 class="seah2">Sanji Soba</h2>
-            <div class="seaImgDiv">
-                <img src="${soba}" alt="SanjiSoba" class="imgSize">
+            <div class="sobaImgDiv">
+                <img src="${soba}" alt="SanjiSoba" class="imgSize sobaImg">
             </div>
         `;
 
         const specialDiv = document.createElement('div');
-        specialDiv.classList.add('allDivMenu');
-        const specialImgDiv = document.createElement('div');
+        specialDiv.classList.add('specialDiv');
         specialDiv.innerHTML = `
             <h2 class="seah2">Strawhat Meal</h2>
-            <div class="seaImgDiv">
-                <img src="${special}" alt="Strawhat-Meal" class="imgSize">
-            </div>
-        `;        
+            <div class="specialImgDiv">
+                <img src="${special}" alt="Strawhat-Meal" class="imgSize special">
+                <p class="specialP">The All Blue is a legendary ocean that is yet to appear in the series. There are fish present here from each of the four seas, and to have such a huge resource at one's disposal is the ultimate dream of every chef. There have been several hints in the series that All Blue truly exists. </p>
+            </div>  
+        `;       
         menuDiv.append(seafoodDiv, sobaDiv, specialDiv);
-
-        menugotClick(menuDiv, seafoodDiv, sobaDiv, specialDiv);
-
         return menuDiv;
     }
-
     return {HomePage, menuPage}
 
 }
 
-const menugotClick = (menu, sea, soba, special) => {
-    const menuArr = [sea, soba, special];
-    menu.addEventListener('click', function(event) {
-        if (event.target.className === 'seafoodDiv') {
-            menuArr.forEach(key => key.classList.remove('allDivMenu', 'specialDiv'));
-            sea.classList.add('specialDiv');
+// Specific Menu is Click
+export const menuClick = (event, menu) => {
+    const allDiv = Array.from(menu.querySelectorAll('div'));
+    const allDivArr = [allDiv[0], allDiv[2], allDiv[4]];
+    if(event.target.alt === 'Seafood'){
+        verify(allDivArr, allDivArr[0]);
+    }
+    else if(event.target.alt === 'SanjiSoba'){
+        verify(allDivArr, allDivArr[1]);
+    }
+    else if(event.target.alt === 'Strawhat-Meal'){
+        verify(allDivArr, allDivArr[2]);
+    }
+}
+
+function verify(DivArr, spec){
+    const p = document.querySelector('.specialP');
+    DivArr.forEach((key) => {
+        key.style.display = key.style.display === 'none' ? 'grid' : 'none';
+        key.style.width = key.style.width === '33.3%' ? '100%' : '33.3%';
+        key.style.gridTemplate = key.style.gridTemplate === '1fr 7fr / 1fr' ? '1fr 7fr / 1fr 1fr' : '1fr 7fr / 1fr';
+   });
+    spec.style.display = spec.style.display === 'none' ? 'grid' : 'none';
+    spec.style.width = spec.style.width === '33.3%' ? '100%' : '33.3%';
+    p.style.display = p.style.display === 'none' ? 'inline-flex' : 'none';
+}
+export const navgetClicked = (navbtn, home, menu, contact) => {
+    const btnArr = [home, menu, contact];
+    const btnitems = ['forHome', 'forMenu', 'forContact'];
+    navbtn.addEventListener('click', function(event) {
+        if(event.target.id === 'HOME'){
+            btnArr.forEach(key => key.classList.remove('getClick'));
+            home.classList.add('getClick');
+            setDisplay(btnitems[0]);
+       }
+        else if(event.target.id === 'MENU'){
+            btnArr.forEach(key => key.classList.remove('getClick'));
+            menu.classList.add('getClick');
+            setDisplay(btnitems[1]);
         }
-        else if(event.target.className === 'sobaDiv'){
-            menuArr.forEach(key => key.classList.remove('allDivMenu', 'specialDiv'));
-            soba.classList.add('specialDiv');
-        }
-        else {
-            // Handle the default case (e.g., when 'specialDiv' or any other element is clicked)
-            menuArr.forEach(key => key.style.display = 'none');
-            // Handle the default behavior here
+        else if(event.target.id === 'CONTACT'){
+            btnArr.forEach(key => key.classList.remove('getClick'));
+            contact.classList.add('getClick');
+            setDisplay(btnitems[2]);
         }
     });
 }
+
+const setDisplay = (x) =>{
+    const newHome = document.querySelector('.homeDiv');
+    const newMenu = document.querySelector('.menuDiv');
+
+    if(x === 'forHome'){
+        newHome.style.display = newHome.style.display = 'none'? 'flex': 'none';
+        newMenu.style.display = newMenu.style.display = 'flex'? 'none': 'flex';
+    }
+    else if(x === 'forMenu'){
+        newHome.style.display = newHome.style.display = 'flex'? 'none': 'flex';
+        newMenu.style.display = newMenu.style.display = 'none'? 'flex': 'none';
+    }
+}
+
 
 
 
