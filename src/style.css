@@ -129,33 +129,36 @@ footer{
     height: 100%;
     border-radius: 10px;
 }
-.allDivMenu, .specialDiv{
+.seaDiv, .soDiv, .specialDiv{
     border: 2px solid white;
     width: 33.3%;
     height: 100%;
     border-radius: 5px;
     display: grid;
-    grid-template-rows: 1fr 7fr;   
-    /* gap: .rem; */
+    grid-template: 1fr 7fr/ 1fr;   
     place-content: center;
-    /* text-align: center; */
     cursor: pointer; 
 }
-.specialDiv{
-    width: 100%;
-}
-.seaImgDiv{
-    grid-row: 2/3;
+.seaImgDiv, .sobaImgDiv, .specialImgDiv{
+    display: flex;
+    grid-area: 2/1/3/2;
     padding: 0 1rem 1rem;
 }
 .seah2{
-    grid-row: 1/2;
+    grid-area: 1/1/2/2;
     text-align: center;
     color: #000;
     font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;    
+}
+.specialP{
+    display: none;
+    grid-area: 2/2/3/3;
+    text-align: justify;
+    padding: 1rem;
+    flex: 1;
 }
 
 
