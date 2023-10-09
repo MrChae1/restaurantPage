@@ -68,6 +68,16 @@ export function allFunc(){
                 </section>
             </div>
         `;
+
+        const teamSection = document.createElement('div');
+        teamSection.classList.add('Team-Section');
+        teamSection.innerHTML = `
+            <header>
+                <h2>Meet The Team</h2>
+            </header>
+        `;
+
+
         AllSection.append(homeSection, menuSection);
         sectionTag.appendChild(AllSection);       
         changeDom.MenuClick(menuSection);

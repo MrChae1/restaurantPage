@@ -63,58 +63,27 @@ export function DOMchanges(){
         });
 
         if(items === 'One'){
-            MDiv[0].style.display = MDiv[0].style.display === 'none' ? 'flex' : 'none';
-            MDiv[0].style.width = MDiv[0].style.width === '33.3%' ? '100%' : '33.3%';
-            MPara[0].style.display = MPara[0].style.display === 'inline-block' ? 'none' : 'inline-block';
-            setTimeout(() => {
-                applyOpacityTransition(MPara[0], MDiv[0]);
-            }, 1000);
-            MPara[1].style.display = 'none';
-            MPara[2].style.display = 'none';
+            timeSet(MDiv[0], MPara[0], MPara[1], MPara[2]);
         }
         else if(items === 'Two'){
-            MDiv[1].style.display = MDiv[1].style.display === 'none' ? 'flex' : 'none';
-            MDiv[1].style.width = MDiv[1].style.width === '33.3%' ? '100%' : '33.3%';
-            MPara[1].style.display = MPara[1].style.display === 'inline-block' ? 'none' : 'inline-block';
-            setTimeout(() => {
-                applyOpacityTransition(MPara[1], MDiv[1]);
-            }, 1000);
-            MPara[0].style.display = 'none';
-            MPara[2].style.display = 'none';
+            timeSet(MDiv[1], MPara[1], MPara[0], MPara[2]);
         }
         else if(items === 'Three'){
-            MDiv[2].style.display = MDiv[2].style.display === 'none' ? 'flex' : 'none';
-            MDiv[2].style.width = MDiv[2].style.width === '33.3%' ? '100%' : '33.3%';
-            MPara[2].style.display = MPara[2].style.display === 'inline-block' ? 'none' : 'inline-block';
-            setTimeout(() => {
-                applyOpacityTransition(MPara[2], MDiv[2]);
-            }, 1000);
-            MPara[0].style.display = 'none';
-            MPara[1].style.display = 'none';
+            timeSet(MDiv[2], MPara[2], MPara[0], MPara[1]);   
         }
+    }
+    
+    const timeSet = (div, paraone, paratwo, parathree) => {       
+        setTimeout(() => {
+            div.style.display = div.style.display === 'none' ? 'flex' : 'none';
+            div.style.transition = 'ease-in-out'
+            div.style.width = div.style.width === '33.3%' ? '100%' : '33.3%';
+            paraone.style.display = paraone.style.display === 'inline-block' ? 'none' : 'inline-block';
+        }, 1000);
+        paratwo.style.display = 'none';
+        parathree.style.display = 'none';
 
     }
-    const applyOpacityTransition = (x,y) => {
-        // Apply a CSS transition for opacity
-        x.style.transition = 'opacity 0.5s';
-        y.style.transition = 'opacity 0.5s';
-    
-        // Toggle the opacity value
-        if (x.style.opacity === '1') {
-            x.style.opacity = '0';
-            y.style.opacity = '1';
-        } else {
-            x.style.opacity = '1';
-            y.style.opacity = '1';
-        }
-    
-        // After a short delay, remove the transition to avoid affecting subsequent changes
-        setTimeout(() => {
-            x.style.transition = '';
-            y.style.transition = '';
-        }, 500); // Adjust the delay as needed
-    }
-    
     return {navBG, MenuClick}
 }
 
