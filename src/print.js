@@ -4,6 +4,16 @@ import blueMap from '../src/img/allBlueMap.jpg';
 import seaFood from '../src/img/baratie-seafood-rice.png';
 import soba from '../src/img/sanji-soba.png';
 import special from '../src/img/strawHat-special-Meal.png';
+import nami from '../src/img/nami.jpg';
+import robin from '../src/img/robin.jpg';
+import brook from '../src/img/brook.jpg';
+import chopper from '../src/img/chopper.jpg';
+import franky from '../src/img/franky.jpg';
+import jinbe from '../src/img/jinbe.jpg';
+import luffy from '../src/img/luffy.jpg';
+import sanji from '../src/img/sanji.jpg';
+import zorro from '../src/img/zoro.jpg';
+import ussop from '../src/img/ussop.jpg';
 
 export function allFunc(){
     const changeDom = DOMchanges();
@@ -73,12 +83,106 @@ export function allFunc(){
         teamSection.classList.add('Team-Section');
         teamSection.innerHTML = `
             <header>
-                <h2>Meet The Team</h2>
+                <h2>Meet The CREW</h2>
             </header>
+            <div class="main-row">
+                <div class="sub-main">
+                    <div class="team-container"> 
+                        <img src="${nami}" alt="nami-image">
+                    </div>
+                    <div class="team-p">
+                        <p>NAMI</p>
+                        <p>MANAGER</p>
+                    </div>
+                </div>
+                <div class="sub-main">
+                    <div class="team-container"> 
+                        <img src="${ussop}" alt="ussop-image">
+                    </div>
+                    <div class="team-p">
+                        <p>USSOP</p>
+                        <p>SOGE KING</p>
+                    </div>
+                </div>  
+            </div>
+            <div class="sub-row">
+                <div class="sub-team">
+                    <div class="team-container"> 
+                        <img src="${sanji}" alt="sanji-image">
+                    </div>
+                    <div class="team-p">
+                        <p>SANJI</p>
+                        <p>HEAD CHEF</p>
+                    </div> 
+                </div> 
+                <div class="sub-team">
+                    <div class="team-container"> 
+                        <img src="${luffy}" alt="Luffy-image">
+                    </div>
+                    <div class="team-p">
+                        <p>LUFFY</p>
+                        <p>FOOD TASTER</p>
+                    </div> 
+                </div> 
+                <div class="sub-team">
+                    <div class="team-container"> 
+                        <img src="${zorro}" alt="zorro-image">
+                    </div>
+                    <div class="team-p">
+                        <p>ZORRO</p>
+                        <p>SUSHI CHEF</p>
+                    </div> 
+                </div> 
+                <div class="sub-team">
+                    <div class="team-container"> 
+                        <img src="${chopper}" alt="chopper-image">
+                    </div>
+                    <div class="team-p">
+                        <p>CHOPPER</p>
+                        <p>EMERGENCY FOOD</p>
+                    </div> 
+                </div> 
+                <div class="sub-team">
+                    <div class="team-container"> 
+                        <img src="${franky}" alt="franky-image">
+                    </div>
+                    <div class="team-p">
+                        <p>FRANKY</p>
+                        <p>GRILL CHEF</p>
+                    </div> 
+                </div> 
+                <div class="sub-team">
+                    <div class="team-container"> 
+                        <img src="${robin}" alt="robin-image">
+                    </div>
+                    <div class="team-p">
+                        <p>ROBIN</p>
+                        <p>PASTRY CHEF</p>
+                    </div> 
+                </div>
+                <div class="sub-team">
+                    <div class="team-container"> 
+                        <img src="${brook}" alt="brook-image">
+                    </div>
+                    <div class="team-p">
+                        <p>BROOK</p>
+                        <p>PRIVATE CHEF</p>
+                    </div> 
+                </div> 
+                <div class="sub-team">
+                    <div class="team-container"> 
+                        <img src="${jinbe}" alt="jinbe-image">
+                    </div>
+                    <div class="team-p">
+                        <p>JIMBE</p>
+                        <p>VEGAN CHEF</p>
+                    </div> 
+                </div>  
+
+            </div>      
         `;
 
-
-        AllSection.append(homeSection, menuSection);
+        AllSection.append(homeSection, menuSection, teamSection);
         sectionTag.appendChild(AllSection);       
         changeDom.MenuClick(menuSection);
         

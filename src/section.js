@@ -21,20 +21,21 @@ export function DOMchanges(){
     const navVerify = (navBtn, items) =>{
         const newHome = document.querySelector('.Home-Section');
         const newMenu = document.querySelector('.Menu-Section');
+        const newTeam = document.querySelector('.Team-Section')
+        const divSection = [newHome, newMenu, newTeam];
+        divSection.forEach(key => key.style.display = 'none');
         navBtn.forEach(key => key.classList.remove('special-button'));
         if(items === 'forHome'){
             navBtn[0].classList.add('special-button');
             newHome.style.display = newHome.style.display = 'none'? 'grid': 'none';
-            newMenu.style.display = newMenu.style.display = 'flex'? 'none': 'flex';
         }
         else if(items === 'forMenu'){
             navBtn[1].classList.add('special-button');
-            newHome.style.display = newHome.style.display = 'grid'? 'none': 'grid';
-            newMenu.style.display = newMenu.style.display = 'none'? 'flex': 'none';
-            
+            newMenu.style.display = newMenu.style.display = 'none'? 'flex': 'none';      
         }
         else if(items === 'forTeam'){
             navBtn[2].classList.add('special-button');
+            newTeam.style.display = newTeam.style.display = 'none'? 'grid': 'none';
         }
     }
 
